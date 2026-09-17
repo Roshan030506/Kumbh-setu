@@ -1,0 +1,6 @@
+{
+  "name": "Smart Pilgrim Platform - Kumbh Mela 2026 Nashik",
+  "description": "Smart pilgrim assistance, crowd management, vendor management, and emergency response platform for Kumbh Mela 2026, Nashik.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

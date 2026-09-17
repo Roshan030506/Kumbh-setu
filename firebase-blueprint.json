@@ -1,0 +1,77 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Pilgrim, Vendor, or Admin account profile document in Firestore users/{uid}",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["pilgrim", "vendor", "admin"],
+          "description": "User role access tier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the user or contact person"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Mobile phone number with country code"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address for auth and communication"
+        },
+        "language": {
+          "type": "string",
+          "enum": ["en", "hi", "mr"],
+          "description": "Preferred interface language"
+        },
+        "elderlyOrDisabledMode": {
+          "type": "boolean",
+          "description": "Whether wheelchair and senior accessibility mode is enabled"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["approved", "pending_approval", "rejected"],
+          "description": "Account / shop review status"
+        },
+        "shopName": {
+          "type": "string",
+          "description": "Name of the registered vendor shop/stall"
+        },
+        "licenseOrGstin": {
+          "type": "string",
+          "description": "FSSAI license or GSTIN registration number"
+        },
+        "category": {
+          "type": "string",
+          "description": "Shop category e.g. Food, Puja Samagri, Accommodation, Medical"
+        },
+        "address": {
+          "type": "string",
+          "description": "Physical location or ghat address"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp or server timestamp of account creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp or server timestamp of last update"
+        }
+      },
+      "required": ["id", "role", "name", "language", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles with role-based routing (pilgrim, vendor with approval status, admin)"
+    }
+  }
+}
